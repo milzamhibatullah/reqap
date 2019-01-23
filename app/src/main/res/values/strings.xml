@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Reqap</string>
+    <string name="selamat_datang">Halo, selamat datang</string>
+    <string name="persiapan_akun">Kami akan mempersiapkan akun anda</string>
+</resources>
