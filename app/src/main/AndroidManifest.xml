@@ -26,6 +26,10 @@
 
         <activity android:name=".view.PreferenceActivity">
         </activity>
+        <activity android:name=".view.MainActivity"
+                  android:theme="@style/MainActiviytTheme"
+         >
+        </activity>
     </application>
 
 </manifest>

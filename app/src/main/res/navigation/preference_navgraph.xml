@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/preference_navgraph" app:startDestination="@id/fragmentPreference">
+
+    <fragment android:id="@+id/fragmentPreference"
+              android:name="id.milzamhb.finance.reqap.view.fragment.FragmentPreference"
+              android:label="FragmentPreference">
+        <action android:id="@+id/action_fragmentPreference_to_fragmentPersonalize"
+                app:destination="@id/fragmentPersonalize" app:popUpToInclusive="true"
+                app:popUpTo="@+id/preference_navgraph"/>
+    </fragment>
+    <fragment android:id="@+id/fragmentPersonalize"
+              android:name="id.milzamhb.finance.reqap.view.fragment.FragmentPersonalize"
+              android:label="FragmentPersonalize"/>
+</navigation>

@@ -2,4 +2,15 @@
     <string name="app_name">Reqap</string>
     <string name="selamat_datang">Halo, selamat datang</string>
     <string name="persiapan_akun">Kami akan mempersiapkan akun anda</string>
+    <string name="mulai">Mulai</string>
+    <string name="nama_anda" translatable="false">Nama Lengkap</string>
+    <string name="alamat_email">Alamat Email</string>
+    <string name="personalisasi_akun">Personalisasi Akun Anda</string>
+    <string name="no_telp">Nomor Telpon</string>
+    <string name="Masuk">Masuk</string>
+    <string name="transaksi_keuangan">Transaksi</string>
+    <string name="statistik">Statistik</string>
+    <string name="notif">Notifikasi</string>
+    <string name="akun">Akun</string>
+    <string name="cek_inputan">Pastikan semua sudah terisi</string>
 </resources>
