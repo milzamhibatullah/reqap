@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#cccccc</color>
     <color name="colorAccent">#3F51B5</color>
+    <color name="bottom_menu_uncheck">#757575</color>
 </resources>

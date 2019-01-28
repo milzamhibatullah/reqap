@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/main_navgraph">
-
+            android:id="@+id/main_navgraph" app:startDestination="@id/fragmentTransaction">
+    <fragment android:id="@+id/fragmentTransaction"
+              android:name="id.milzamhb.finance.reqap.view.fragment.FragmentTransaction"
+              android:label="FragmentTransaction"/>
 </navigation>

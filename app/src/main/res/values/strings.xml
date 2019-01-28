@@ -13,4 +13,8 @@
     <string name="notif">Notifikasi</string>
     <string name="akun">Akun</string>
     <string name="cek_inputan">Pastikan semua sudah terisi</string>
+    <string name="belum_ada_data">Belum ada data</string>
+    <string name="pilih_kategori">Pilih Kategori</string>
+    <string name="pengeluaran">Pengeluaran</string>
+    <string name="pemasukan">Pemasukan</string>
 </resources>

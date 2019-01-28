@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            tools:context="id.milzamhb.finance.reqap.view.fragment.FragmentTransaction"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="16dp"
+                android:elevation="6dp"
+                android:paddingBottom="16dp"
+                android:background="@color/colorAccent"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/linearLayout">
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_left"
+                    android:layout_gravity="center"
+                    android:id="@+id/transDateLeft"
+                    android:tint="@color/colorPrimary"
+                    android:background="@android:color/transparent"
+                    android:clickable="true" android:focusable="true"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center"
+                      android:layout_marginStart="8dp"
+                      android:layout_marginEnd="8dp"
+                      android:text="Hari ini, 29 Jan 2018"
+                      android:fontFamily="@font/roboto_light"
+                      android:textColor="@android:color/white"
+                      android:textSize="@dimen/size_16_sp"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_right"
+                    android:tint="@color/colorPrimary"
+                    android:layout_gravity="center"
+                    android:id="@+id/transDateRight"
+                    android:background="@android:color/transparent"
+                    android:clickable="true" android:focusable="true"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_marginTop="2dp"
+                      app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                      app:layout_constraintStart_toStartOf="parent"
+                      android:background="@color/colorPrimary"
+                      android:paddingStart="16dp" android:paddingEnd="16dp" android:paddingTop="8dp"
+                      android:paddingBottom="8dp" android:id="@+id/linearLayout2"
+                      app:layout_constraintEnd_toStartOf="@+id/linearLayout3">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="Total Pengeluaran"
+                      android:fontFamily="@font/roboto_light"
+                      android:textColor="@android:color/black"
+                      android:gravity="center"/>
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="2dp"
+                      android:text="Rp.1.000.000.000"
+                      android:fontFamily="@font/roboto_light"
+                      android:textColor="@android:color/holo_red_dark" android:gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_marginTop="2dp"
+                android:layout_height="wrap_content" android:paddingTop="8dp" android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/linearLayout3" android:paddingBottom="8dp">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="Total Pemasukan"
+                      android:fontFamily="@font/roboto_light"
+                      android:textColor="@android:color/black"
+                      android:gravity="center"/>
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="2dp"
+                      android:text="Rp.1.000.000.000"
+                      android:fontFamily="@font/roboto_light"
+                      android:textColor="@color/design_default_color_primary_dark" android:gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" android:layout_marginTop="2dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/linearLayout4">
+            <TextView
+                    android:text="@string/belum_ada_data"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content" android:id="@+id/textView4" android:padding="16dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/roboto_light" android:textColor="@android:color/black"/>
+            <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/recycler_transaction"/>
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

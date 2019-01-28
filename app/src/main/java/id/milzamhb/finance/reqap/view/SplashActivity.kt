@@ -19,13 +19,14 @@ class SplashActivity : AppCompatActivity() {
         val personalize= Intent(this,PreferenceActivity::class.java)
         val dashboard = Intent(this,MainActivity::class.java)
         val runnable= Runnable {
-            if (pref.getString(StaticClass.PERSONALIZED,"") != "true"){
+           /* if (pref.getString(StaticClass.PERSONALIZED,"") != "true"){
                 startActivity(personalize)
                 finish()
             }else{
                 startActivity(dashboard)
                 finish()
-            }
+            }*/
+            startActivity(dashboard)
 
         }
         Handler().postDelayed(runnable,4000)
