@@ -17,4 +17,18 @@
     <string name="pilih_kategori">Pilih Kategori</string>
     <string name="pengeluaran">Pengeluaran</string>
     <string name="pemasukan">Pemasukan</string>
+    <string name="keterangan">Keterangan</string>
+    <string name="total">Jumlah/Total</string>
+    <string name="tunai">Tunai</string>
+    <string name="transfer">Transfer</string>
+    <string name="tambah">Tambah</string>
+    <string name="nama_transaksi">Nama Transaksi</string>
+    <string name="tanggal_transaksi">Tanggal Transaksi</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="kategori">Kategori</string>
+    <string name="kategori_transaksi">Kategori Transaksi</string>
+    <string name="metode_transaksi">Metode Transaksi</string>
+    <string name="metode">metode</string>
+    <string name="total_transaksi">Total</string>
+    <string name="upload_bukti">Upload Bukti(Optional)</string>
 </resources>

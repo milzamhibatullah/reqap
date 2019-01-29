@@ -14,6 +14,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import id.milzamhb.finance.reqap.R
@@ -21,15 +22,20 @@ import id.milzamhb.finance.reqap.databinding.ActivityMainBinding
 import id.milzamhb.finance.reqap.utils.AddItemCategory
 import id.milzamhb.finance.reqap.view.adapter.ExpenseCategoryAdapter
 import id.milzamhb.finance.reqap.view.adapter.IncomeCategoryAdapter
+import id.milzamhb.finance.reqap.view.fragment.FragmentTransactionDirections
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),ExpenseCategoryAdapter.SetData {
+
+
     lateinit var bottomNavBar : BottomNavigationView
     lateinit var fab : FloatingActionButton
+    lateinit var navController : NavController
+    lateinit var dialog: BottomSheetDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding=DataBindingUtil.setContentView<ActivityMainBinding>(this,
             R.layout.activity_main)
-        val navController = Navigation.findNavController(this,R.id.mainNavHost)
+         navController = Navigation.findNavController(this,R.id.mainNavHost)
         bottomNavBar=binding.bottomNavigationView
         fab=binding.floatingActionButton
         NavigationUI.setupWithNavController(bottomNavBar,navController)
@@ -44,23 +50,28 @@ class MainActivity : AppCompatActivity() {
         val recyclerExpense : RecyclerView=view.findViewById(R.id.recyclerExpenseCategory)
         val recyclerIncome: RecyclerView=view.findViewById(R.id.recyclerIncomeCategory)
         recyclerExpense.visibility=View.VISIBLE
-        val adapterExpense=ExpenseCategoryAdapter(AddItemCategory.expenseItem())
+        val adapterExpense=ExpenseCategoryAdapter(AddItemCategory.expenseItem(),this)
         val adapterIncome=IncomeCategoryAdapter(AddItemCategory.incomeItem())
-        recyclerExpense.setHasFixedSize(true)
-        recyclerExpense.layoutManager=GridLayoutManager(this,4)
-        recyclerExpense.adapter=adapterExpense
+        recyclerExpense.apply {
+            setHasFixedSize(true)
+            layoutManager=GridLayoutManager(this@MainActivity,4)
+            adapter=adapterExpense
+        }
+
         recyclerIncome.apply {
             setHasFixedSize(true)
             layoutManager=GridLayoutManager(context,4)
             adapter=adapterIncome
         }
-        val dialog=BottomSheetDialog(this)
+        dialog=BottomSheetDialog(this)
         dialog.setContentView(view)
         dialog.create()
         dialog.show()
-
-
-
-
+    }
+    override fun send(type: Int, kategori: String) {
+        if (dialog.isShowing)dialog.dismiss()
+        navController.navigate(FragmentTransactionDirections.actionFragmentTransactionToFragmentAdd(
+            type,kategori
+        ))
     }
 }

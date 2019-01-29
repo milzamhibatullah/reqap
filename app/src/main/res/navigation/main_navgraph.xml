@@ -4,5 +4,13 @@
             android:id="@+id/main_navgraph" app:startDestination="@id/fragmentTransaction">
     <fragment android:id="@+id/fragmentTransaction"
               android:name="id.milzamhb.finance.reqap.view.fragment.FragmentTransaction"
-              android:label="FragmentTransaction"/>
+              android:label="FragmentTransaction">
+        <action android:id="@+id/action_fragmentTransaction_to_fragmentAdd" app:destination="@id/fragmentAdd"
+                app:popUpTo="@+id/fragmentTransaction"/>
+    </fragment>
+    <fragment android:id="@+id/fragmentAdd" android:name="id.milzamhb.finance.reqap.view.fragment.FragmentAdd"
+              android:label="FragmentAdd">
+        <argument android:name="type" app:argType="integer"/>
+        <argument android:name="kategori" app:argType="string"/>
+    </fragment>
 </navigation>
