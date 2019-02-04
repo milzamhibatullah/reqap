@@ -10,10 +10,12 @@ import id.milzamhb.finance.reqap.model.Transaction
 class TransactionViewModel(application: Application) : AndroidViewModel(application){
         private val repository : TransactionRepository
         val selectAll : LiveData<List<Transaction>>
+        val totalExpense : LiveData<List<Transaction>>
         init {
             val  transDao= Databases.getDatabase(application).transDao()
             repository= TransactionRepository(transDao)
             selectAll=repository.selectAll
+            totalExpense=repository.totalExpense
         }
 
     fun insert(transaction: Transaction){

@@ -33,9 +33,9 @@ class ExpenseCategoryAdapter(private val  items:List<CategoryItem>,val listener 
     override fun onBindViewHolder(holder: ExpenseCategoryAdapter.ViewHolder, position: Int) {
        holder.bind(items[position])
     }
-    class ViewHolder(itemBinding:ExpenseItemCategoryBinding,val setData : SetData) : RecyclerView.ViewHolder(itemBinding.root) {
-        val title=itemBinding.tvItem
-        val img=itemBinding.imgItem
+    class ViewHolder(itemBinding:ExpenseItemCategoryBinding, private val setData : SetData) : RecyclerView.ViewHolder(itemBinding.root) {
+        private val title=itemBinding.tvItem
+        private val img=itemBinding.imgItem
         fun bind(bindItem: CategoryItem){
             title.text=bindItem.title
             img.setImageResource(bindItem.image)

@@ -24,8 +24,7 @@ import id.milzamhb.finance.reqap.view.adapter.ExpenseCategoryAdapter
 import id.milzamhb.finance.reqap.view.adapter.IncomeCategoryAdapter
 import id.milzamhb.finance.reqap.view.fragment.FragmentTransactionDirections
 
-class MainActivity : AppCompatActivity(),ExpenseCategoryAdapter.SetData {
-
+class MainActivity : AppCompatActivity(),ExpenseCategoryAdapter.SetData, IncomeCategoryAdapter.IncomeData {
 
     lateinit var bottomNavBar : BottomNavigationView
     lateinit var fab : FloatingActionButton
@@ -51,7 +50,7 @@ class MainActivity : AppCompatActivity(),ExpenseCategoryAdapter.SetData {
         val recyclerIncome: RecyclerView=view.findViewById(R.id.recyclerIncomeCategory)
         recyclerExpense.visibility=View.VISIBLE
         val adapterExpense=ExpenseCategoryAdapter(AddItemCategory.expenseItem(),this)
-        val adapterIncome=IncomeCategoryAdapter(AddItemCategory.incomeItem())
+        val adapterIncome=IncomeCategoryAdapter(AddItemCategory.incomeItem(),this)
         recyclerExpense.apply {
             setHasFixedSize(true)
             layoutManager=GridLayoutManager(this@MainActivity,4)
@@ -74,4 +73,11 @@ class MainActivity : AppCompatActivity(),ExpenseCategoryAdapter.SetData {
             type,kategori
         ))
     }
+    override fun set(kategori: String, type: Int) {
+        if (dialog.isShowing)dialog.dismiss()
+        navController.navigate(FragmentTransactionDirections.actionFragmentTransactionToFragmentAdd(
+            type,kategori
+        ))
+    }
+
 }

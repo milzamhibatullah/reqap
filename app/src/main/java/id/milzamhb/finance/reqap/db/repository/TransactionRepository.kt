@@ -8,6 +8,7 @@ import id.milzamhb.finance.reqap.model.Transaction
 
 class TransactionRepository(private val transDao : TransactionDao){
     val selectAll: LiveData<List<Transaction>> =  transDao.getData()
+    val totalExpense : LiveData<List<Transaction>> = transDao.getTotalExpense()
     @WorkerThread
     fun insert(transaction: Transaction){
         insertAsynctask(transDao).execute(transaction)

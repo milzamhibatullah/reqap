@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:paddingTop="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:weightSum="3"
+            android:paddingBottom="8dp"
+
+    >
+        <TextView android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  tools:text="Rumah Tangga"
+                  android:layout_weight="1"
+                  android:fontFamily="@font/roboto_light"
+                  android:textColor="@color/colorPrimaryDark"
+                  android:gravity="start" android:id="@+id/tv_statistic_category"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="4dp"
+                  android:layout_gravity="center"
+                  android:fontFamily="@font/roboto_light"
+                  android:textColor="@android:color/black"
+                  tools:text="Pembelian Listrik"
+                  android:id="@+id/tv_statistic_name" android:gravity="start"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_weight="1"
+                  android:textSize="14sp"
+                  android:layout_marginStart="4dp"
+                  android:textColor="@android:color/holo_red_dark"
+                  android:fontFamily="@font/roboto"
+                  tools:text="Rp.100.000.000.000"
+                  android:gravity="end" android:id="@+id/tv_statistic_amount"/>
+    </LinearLayout>
+</layout>

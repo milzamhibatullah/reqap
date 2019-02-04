@@ -31,4 +31,7 @@
     <string name="metode">metode</string>
     <string name="total_transaksi">Total</string>
     <string name="upload_bukti">Upload Bukti(Optional)</string>
+    <string name="nol_rupiah">Rp.0,-</string>
+    <string name="tambah_pengeluaran">Tambah Pengeluaran</string>
+    <string name="tambah_pemasukan">Tambah Pemasukan</string>
 </resources>

@@ -66,9 +66,10 @@
             <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:layout_marginTop="2dp"
-                      android:text="Rp.1.000.000.000"
+                      android:text="@string/nol_rupiah"
                       android:fontFamily="@font/roboto_light"
-                      android:textColor="@android:color/holo_red_dark" android:gravity="center"/>
+                      android:textColor="@android:color/holo_red_dark" android:gravity="center"
+                      android:id="@+id/tvAmountExpense"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -90,9 +91,10 @@
             <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:layout_marginTop="2dp"
-                      android:text="Rp.1.000.000.000"
+                      android:text="@string/nol_rupiah"
                       android:fontFamily="@font/roboto_light"
-                      android:textColor="@color/design_default_color_primary_dark" android:gravity="center"/>
+                      android:textColor="@color/design_default_color_primary_dark" android:gravity="center"
+                      android:id="@+id/tvAmountIncome"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -105,7 +107,7 @@
                     android:text="@string/belum_ada_data"
                     android:layout_width="match_parent"
                     android:layout_marginTop="8dp"
-                    android:layout_height="wrap_content" android:id="@+id/textView4" android:padding="16dp"
+                    android:layout_height="wrap_content" android:id="@+id/tvNoData" android:padding="16dp"
                     android:gravity="center"
                     android:fontFamily="@font/roboto_light" android:textColor="@android:color/black"/>
             <android.support.v7.widget.RecyclerView

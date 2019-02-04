@@ -10,7 +10,8 @@ import id.milzamhb.finance.reqap.model.Transaction
 interface TransactionDao{
     @Query("SELECT * FROM transaction_table ORDER BY id desc")
     fun getData() : LiveData<List<Transaction>>
-
+    @Query("SELECT * FROM transaction_table WHERE type_category=1")
+    fun getTotalExpense() : LiveData<List<Transaction>>
     @Insert
     fun insert(transaction: Transaction)
 

@@ -27,6 +27,7 @@ class SplashActivity : AppCompatActivity() {
                 finish()
             }*/
             startActivity(dashboard)
+            finish()
 
         }
         Handler().postDelayed(runnable,4000)
