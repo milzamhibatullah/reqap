@@ -47,62 +47,14 @@
                     android:background="@android:color/transparent"
                     android:clickable="true" android:focusable="true"/>
         </LinearLayout>
-        <LinearLayout android:layout_width="0dp"
-                      android:layout_height="wrap_content"
-                      android:orientation="vertical"
-                      android:layout_marginTop="2dp"
-                      app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                      app:layout_constraintStart_toStartOf="parent"
-                      android:background="@color/colorPrimary"
-                      android:paddingStart="16dp" android:paddingEnd="16dp" android:paddingTop="8dp"
-                      android:paddingBottom="8dp" android:id="@+id/linearLayout2"
-                      app:layout_constraintEnd_toStartOf="@+id/linearLayout3">
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:text="Total Pengeluaran"
-                      android:fontFamily="@font/roboto_light"
-                      android:textColor="@android:color/black"
-                      android:gravity="center"/>
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginTop="2dp"
-                      android:text="@string/nol_rupiah"
-                      android:fontFamily="@font/roboto_light"
-                      android:textColor="@android:color/holo_red_dark" android:gravity="center"
-                      android:id="@+id/tvAmountExpense"/>
-        </LinearLayout>
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_marginTop="2dp"
-                android:layout_height="wrap_content" android:paddingTop="8dp" android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:background="@color/colorPrimary"
-                app:layout_constraintStart_toEndOf="@+id/linearLayout2"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:id="@+id/linearLayout3" android:paddingBottom="8dp">
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:text="Total Pemasukan"
-                      android:fontFamily="@font/roboto_light"
-                      android:textColor="@android:color/black"
-                      android:gravity="center"/>
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginTop="2dp"
-                      android:text="@string/nol_rupiah"
-                      android:fontFamily="@font/roboto_light"
-                      android:textColor="@color/design_default_color_primary_dark" android:gravity="center"
-                      android:id="@+id/tvAmountIncome"/>
-        </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="0dp" android:layout_marginTop="2dp"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/linearLayout4">
+                app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/linearLayout4"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
             <TextView
                     android:text="@string/belum_ada_data"
                     android:layout_width="match_parent"

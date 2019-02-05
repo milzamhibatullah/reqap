@@ -2,26 +2,33 @@ package id.milzamhb.finance.reqap.view.adapter
 
 import android.content.Context
 import android.databinding.DataBindingUtil
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import id.milzamhb.finance.reqap.R
-import id.milzamhb.finance.reqap.databinding.TransactionItemBinding
+import id.milzamhb.finance.reqap.databinding.CardTransactionBinding
 import id.milzamhb.finance.reqap.model.Transaction
+import id.milzamhb.finance.reqap.model.pojo.SumAvg
 
-class TransactionAdapter(val context : Context) : RecyclerView.Adapter<TransactionAdapter.ViewHolder>(){
-    lateinit var binding : TransactionItemBinding
-    private  var transaction : List<Transaction>?=null
+class TransactionAdapter(val context : Context, val listener : SetData) : RecyclerView.Adapter<TransactionAdapter.ViewHolder>(){
+    lateinit var binding :  CardTransactionBinding
+    private  var transaction : List<SumAvg>?=null
+    lateinit var setData : SetData
 
-    fun setTransaction(transaction : List<Transaction>){
+    interface SetData{
+        fun set(date : String,adapter: ItemTransAdapter)
+    }
+    fun setTransaction(transaction : List<SumAvg>){
         this.transaction=transaction
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): TransactionAdapter.ViewHolder {
         binding=DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context), R.layout.transaction_item,parent,false
+            LayoutInflater.from(parent.context), R.layout.card_transaction,parent,false
         )
+        setData=listener
         return ViewHolder(binding)
     }
     override fun getItemCount(): Int {
@@ -31,21 +38,23 @@ class TransactionAdapter(val context : Context) : RecyclerView.Adapter<Transacti
 
     override fun onBindViewHolder(holder: TransactionAdapter.ViewHolder, position: Int) {
         if (transaction!=null){
-            holder.bindItem(transaction!![position])
+            holder.date.text=transaction!![position].date
+            val itemAdapter = ItemTransAdapter(context)
+            holder.recyclerView.apply {
+                setHasFixedSize(true)
+                layoutManager=LinearLayoutManager(context)
+                adapter=itemAdapter
+            }
+            setData.set(transaction!![position].date,itemAdapter)
         }
 
     }
 
 
-    class ViewHolder (itemBinding: TransactionItemBinding) : RecyclerView.ViewHolder(itemBinding.root) {
-        private val category = itemBinding.tvStatisticCategory
-        private val name = itemBinding.tvStatisticName
-        private val amount = itemBinding.tvStatisticAmount
+    class ViewHolder (itemBinding: CardTransactionBinding) : RecyclerView.ViewHolder(itemBinding.root) {
+         val date = itemBinding.cardTitle
+         val recyclerView = itemBinding.cardRecycler
 
-        fun bindItem(item : Transaction){
-            category.text=item.category
-            name.text=item.name
-            amount.text=item.amount.toString()
-        }
+
     }
 }

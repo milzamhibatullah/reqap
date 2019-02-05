@@ -27,7 +27,6 @@ import id.milzamhb.finance.reqap.view.fragment.FragmentTransactionDirections
 class MainActivity : AppCompatActivity(),ExpenseCategoryAdapter.SetData, IncomeCategoryAdapter.IncomeData {
 
     lateinit var bottomNavBar : BottomNavigationView
-    lateinit var fab : FloatingActionButton
     lateinit var navController : NavController
     lateinit var dialog: BottomSheetDialog
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,15 +35,11 @@ class MainActivity : AppCompatActivity(),ExpenseCategoryAdapter.SetData, IncomeC
             R.layout.activity_main)
          navController = Navigation.findNavController(this,R.id.mainNavHost)
         bottomNavBar=binding.bottomNavigationView
-        fab=binding.floatingActionButton
         NavigationUI.setupWithNavController(bottomNavBar,navController)
-        fab.setOnClickListener {
-            callBottomDialog() }
     }
 
 
     private fun callBottomDialog() {
-
         val view =layoutInflater.inflate(R.layout.bottom_dialog_category,null)
         val recyclerExpense : RecyclerView=view.findViewById(R.id.recyclerExpenseCategory)
         val recyclerIncome: RecyclerView=view.findViewById(R.id.recyclerIncomeCategory)

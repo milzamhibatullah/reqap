@@ -38,7 +38,6 @@ class FragmentAdd : Fragment(){
             inflater, R.layout.fragment_add,container,false
         )
         (activity as AppCompatActivity).bottomNavigationView.visibility=View.GONE
-        (activity as AppCompatActivity).floatingActionButton.visibility=View.GONE
         bindWidget(binding)
         val stringFormat = SimpleDateFormat("dd/MM/yyyy")
         dateField.setText(stringFormat.format(hariIni()))
@@ -81,7 +80,6 @@ class FragmentAdd : Fragment(){
     override fun onDestroyView() {
         super.onDestroyView()
         (activity as AppCompatActivity).bottomNavigationView.visibility=View.VISIBLE
-        (activity as AppCompatActivity).floatingActionButton.visibility=View.VISIBLE
     }
 
 
