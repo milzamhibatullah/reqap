@@ -182,6 +182,6 @@ IncomeCategoryAdapter.IncomeData{
 
     override fun onResume() {
         super.onResume()
-        count=click
+        displayData()
     }
 }

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import id.milzamhb.finance.reqap.R
 import id.milzamhb.finance.reqap.databinding.TransactionItemBinding
+import java.text.DecimalFormat
 
 class ItemTransAdapter(val context : Context) : RecyclerView.Adapter<ItemTransAdapter.ViewHolder>(){
     lateinit var binding: TransactionItemBinding
@@ -30,9 +31,10 @@ class ItemTransAdapter(val context : Context) : RecyclerView.Adapter<ItemTransAd
 
     override fun onBindViewHolder(p0: ItemTransAdapter.ViewHolder, p1: Int) {
            if (transaction!=null){
+               val format=DecimalFormat("#,###").format(transaction!![p1].amount)
                p0.category.text=transaction!![p1].category
                p0.ket.text=transaction!![p1].name
-               p0.amount.text=transaction!![p1].amount.toString()
+               p0.amount.text="Rp.$format"
            }
     }
 

@@ -1,5 +1,6 @@
 package id.milzamhb.finance.reqap.view.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.support.v7.widget.LinearLayoutManager
@@ -10,6 +11,8 @@ import id.milzamhb.finance.reqap.R
 import id.milzamhb.finance.reqap.databinding.CardTransactionBinding
 import id.milzamhb.finance.reqap.model.Transaction
 import id.milzamhb.finance.reqap.model.pojo.SumAvg
+import java.text.DecimalFormat
+import java.text.SimpleDateFormat
 
 class TransactionAdapter(val context : Context, val listener : SetData) : RecyclerView.Adapter<TransactionAdapter.ViewHolder>(){
     lateinit var binding :  CardTransactionBinding
@@ -38,7 +41,8 @@ class TransactionAdapter(val context : Context, val listener : SetData) : Recycl
 
     override fun onBindViewHolder(holder: TransactionAdapter.ViewHolder, position: Int) {
         if (transaction!=null){
-            holder.date.text=transaction!![position].date
+            holder.date.text= parseDate(transaction!![position].date)
+            holder.amount.text=currencyFormat(transaction!![position].total)
             val itemAdapter = ItemTransAdapter(context)
             holder.recyclerView.apply {
                 setHasFixedSize(true)
@@ -50,10 +54,21 @@ class TransactionAdapter(val context : Context, val listener : SetData) : Recycl
 
     }
 
+    @SuppressLint("SimpleDateFormat")
+    private fun parseDate(date: String) : String {
+      val parsed = SimpleDateFormat("yyyy-MM-dd").parse(date)
+       return SimpleDateFormat("dd MMM yyyy").format(parsed)
+    }
+
+    private fun currencyFormat(amount : Double) : String{
+        val parsed=DecimalFormat("#,###").format(amount)
+        return "Rp.$parsed"
+    }
 
     class ViewHolder (itemBinding: CardTransactionBinding) : RecyclerView.ViewHolder(itemBinding.root) {
          val date = itemBinding.cardTitle
          val recyclerView = itemBinding.cardRecycler
+         val amount= itemBinding.cardAmountTitle
 
 
     }
