@@ -33,10 +33,10 @@
                       android:layout_gravity="center"
                       android:layout_marginStart="8dp"
                       android:layout_marginEnd="8dp"
-                      android:text="Hari ini, 29 Jan 2018"
-                      android:fontFamily="@font/roboto_light"
+                      android:text="@string/bulan_ini"
+                      android:fontFamily="@font/open_sans"
                       android:textColor="@android:color/white"
-                      android:textSize="@dimen/size_16_sp"/>
+                      android:textSize="@dimen/size_16_sp" android:id="@+id/monthTransTitle"/>
             <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -66,5 +66,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" android:id="@+id/recycler_transaction"/>
         </LinearLayout>
+        <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true" app:srcCompat="@drawable/ic_add_white" android:id="@+id/btnNewTrans"
+                android:layout_marginBottom="22dp"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"/>
     </android.support.constraint.ConstraintLayout>
 </layout>

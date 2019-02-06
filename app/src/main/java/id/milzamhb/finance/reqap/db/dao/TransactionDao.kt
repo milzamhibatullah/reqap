@@ -15,8 +15,8 @@ interface TransactionDao{
     fun getTotalExpense() : LiveData<List<Transaction>>
     @Insert
     fun insert(transaction: Transaction)
-    @Query("SELECT SUM(amount) as total,AVG(amount) as avg, date from transaction_table group by date")
-    fun  groupByDate() : LiveData<List<SumAvg>>
+    @Query("SELECT SUM(amount) as total,AVG(amount) as avg, date from transaction_table where strftime('%m', date)=:month AND strftime('%Y', date)=:year group by date")
+    fun  groupByDate(month : String,year : String) : LiveData<List<SumAvg>>
     @Query("select * from transaction_table where date =:date order by id desc")
     fun getByDate(date : String) : LiveData<List<Transaction>>
     @Query("DELETE FROM transaction_table")

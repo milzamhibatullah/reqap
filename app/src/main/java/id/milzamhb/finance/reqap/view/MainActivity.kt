@@ -24,11 +24,11 @@ import id.milzamhb.finance.reqap.view.adapter.ExpenseCategoryAdapter
 import id.milzamhb.finance.reqap.view.adapter.IncomeCategoryAdapter
 import id.milzamhb.finance.reqap.view.fragment.FragmentTransactionDirections
 
-class MainActivity : AppCompatActivity(),ExpenseCategoryAdapter.SetData, IncomeCategoryAdapter.IncomeData {
+class MainActivity : AppCompatActivity() {
 
     lateinit var bottomNavBar : BottomNavigationView
     lateinit var navController : NavController
-    lateinit var dialog: BottomSheetDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding=DataBindingUtil.setContentView<ActivityMainBinding>(this,
@@ -39,40 +39,6 @@ class MainActivity : AppCompatActivity(),ExpenseCategoryAdapter.SetData, IncomeC
     }
 
 
-    private fun callBottomDialog() {
-        val view =layoutInflater.inflate(R.layout.bottom_dialog_category,null)
-        val recyclerExpense : RecyclerView=view.findViewById(R.id.recyclerExpenseCategory)
-        val recyclerIncome: RecyclerView=view.findViewById(R.id.recyclerIncomeCategory)
-        recyclerExpense.visibility=View.VISIBLE
-        val adapterExpense=ExpenseCategoryAdapter(AddItemCategory.expenseItem(),this)
-        val adapterIncome=IncomeCategoryAdapter(AddItemCategory.incomeItem(),this)
-        recyclerExpense.apply {
-            setHasFixedSize(true)
-            layoutManager=GridLayoutManager(this@MainActivity,4)
-            adapter=adapterExpense
-        }
 
-        recyclerIncome.apply {
-            setHasFixedSize(true)
-            layoutManager=GridLayoutManager(context,4)
-            adapter=adapterIncome
-        }
-        dialog=BottomSheetDialog(this)
-        dialog.setContentView(view)
-        dialog.create()
-        dialog.show()
-    }
-    override fun send(type: Int, kategori: String) {
-        if (dialog.isShowing)dialog.dismiss()
-        navController.navigate(FragmentTransactionDirections.actionFragmentTransactionToFragmentAdd(
-            type,kategori
-        ))
-    }
-    override fun set(kategori: String, type: Int) {
-        if (dialog.isShowing)dialog.dismiss()
-        navController.navigate(FragmentTransactionDirections.actionFragmentTransactionToFragmentAdd(
-            type,kategori
-        ))
-    }
 
 }

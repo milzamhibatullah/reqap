@@ -31,6 +31,7 @@ class FragmentAdd : Fragment(){
     lateinit var etCategory : EditText
     lateinit var btnSave : Button
     lateinit var etPayment : EditText
+    private var inputDate : String ?=null
     private var type : Int?=0
     @SuppressLint("RestrictedApi", "SimpleDateFormat")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -39,8 +40,9 @@ class FragmentAdd : Fragment(){
         )
         (activity as AppCompatActivity).bottomNavigationView.visibility=View.GONE
         bindWidget(binding)
-        val stringFormat = SimpleDateFormat("dd/MM/yyyy")
-        dateField.setText(stringFormat.format(hariIni()))
+       // val stringFormat = SimpleDateFormat("dd/MM/yyyy")
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd")
+        dateField.setText(inputFormat.format(hariIni()))
         val args=FragmentAddArgs.fromBundle(arguments!!)
         type=args.type
         when(type){
@@ -63,6 +65,7 @@ class FragmentAdd : Fragment(){
     }
 
     private fun hariIni () : Date? = Calendar.getInstance().time
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val viewModel = ViewModelProviders.of(this).get(TransactionViewModel::class.java)

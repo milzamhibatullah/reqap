@@ -9,13 +9,14 @@ import id.milzamhb.finance.reqap.model.pojo.SumAvg
 
 class TransactionRepository(private val transDao : TransactionDao){
     val selectAll: LiveData<List<Transaction>> =  transDao.getData()
-    val groupByDate : LiveData<List<SumAvg>> = transDao.groupByDate()
     val totalExpense : LiveData<List<Transaction>> = transDao.getTotalExpense()
     @WorkerThread
     fun insert(transaction: Transaction){
         insertAsynctask(transDao).execute(transaction)
     }
-
+    fun groupByDate(mont : String,year : String) : LiveData<List<SumAvg>>{
+        return transDao.groupByDate(mont,year)
+    }
     fun getByDate(date : String) : LiveData<List<Transaction>>{
         return transDao.getByDate(date)
     }
