@@ -43,10 +43,12 @@ IncomeCategoryAdapter.IncomeData{
     private lateinit var noData : TextView
     private var click =0
     private var count =0
+    private var layoutView : View ?=null
     private var ttt : Date?=null
     private lateinit var prevMonth : ImageButton
     private lateinit var nextMonth : ImageButton
     private lateinit var dialog: BottomSheetDialog
+    private val id=Locale("in","ID")
     private lateinit var btnNewTrans : FloatingActionButton
     private var transAdapter : TransactionAdapter?=null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -54,6 +56,7 @@ IncomeCategoryAdapter.IncomeData{
             inflater,R.layout.fragment_transaction,container,false
         )
         bindWidget(binding)
+
         monthTitle.text=thisMonth()
         return binding.root
     }
@@ -101,13 +104,13 @@ IncomeCategoryAdapter.IncomeData{
     
     @SuppressLint("SimpleDateFormat")
     private fun thisMonth():String{
-        val dateFormat = SimpleDateFormat("MMM yyy")
+        val dateFormat = SimpleDateFormat("MMMM yyy",id)
         ttt=Calendar.getInstance().time
         return dateFormat.format(Calendar.getInstance().time)
     }
     @SuppressLint("SimpleDateFormat")
     private fun getMonthYear() : String{
-        val dateFormat = SimpleDateFormat("MMM yyyy")
+        val dateFormat = SimpleDateFormat("MMMM yyyy",id)
         val cal = Calendar.getInstance()
         val date =Date()
         cal.time=date
@@ -116,9 +119,9 @@ IncomeCategoryAdapter.IncomeData{
         return dateFormat.format(cal.time)
     }
     private fun callBottomDialog() {
-        val view =layoutInflater.inflate(R.layout.bottom_dialog_category,null)
-        val recyclerExpense : RecyclerView=view.findViewById(R.id.recyclerExpenseCategory)
-        val recyclerIncome: RecyclerView=view.findViewById(R.id.recyclerIncomeCategory)
+        layoutView =layoutInflater.inflate(R.layout.bottom_dialog_category,null)
+        val recyclerExpense : RecyclerView=layoutView!!.findViewById(R.id.recyclerExpenseCategory)
+        val recyclerIncome: RecyclerView=layoutView!!.findViewById(R.id.recyclerIncomeCategory)
         recyclerExpense.visibility=View.VISIBLE
         val adapterExpense= ExpenseCategoryAdapter(
          AddItemCategory.expenseItem(),
@@ -138,8 +141,8 @@ IncomeCategoryAdapter.IncomeData{
             layoutManager= GridLayoutManager(context,4)
             adapter=adapterIncome
         }
-        dialog= BottomSheetDialog(view.context)
-        dialog.setContentView(view)
+        dialog= BottomSheetDialog(layoutView!!.context)
+        dialog.setContentView(layoutView!!)
         dialog.create()
         dialog.show()
     }

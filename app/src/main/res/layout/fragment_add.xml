@@ -29,7 +29,7 @@
                              android:background="@android:color/transparent"
                              android:src="@drawable/ic_close_dark"
                              android:layout_gravity="center"
-                />
+                             android:id="@+id/btnCloseAd"/>
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:layout_gravity="center"
@@ -62,7 +62,7 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/etAddName" android:layout_marginTop="2dp"
-                    android:hint="@string/transaksi_keuangan"/>
+                    android:hint="@string/transaksi_keuangan" android:backgroundTint="@color/colorPrimaryDark"/>
             <TextView
                     android:text="@string/tanggal_transaksi"
                     android:layout_width="match_parent"
@@ -75,7 +75,8 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/etAddDate" android:hint="@string/tanggal"
-                    android:layout_marginTop="2dp"/>
+                    android:layout_marginTop="2dp" android:backgroundTint="@color/colorPrimaryDark"
+                    android:focusableInTouchMode="false"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -97,7 +98,7 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/etAddKategori" android:layout_weight="1" android:layout_marginTop="2dp"
-                    android:hint="@string/kategori_transaksi"/>
+                    android:hint="@string/kategori_transaksi" android:backgroundTint="@color/colorPrimaryDark"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -115,12 +116,10 @@
                     android:layout_height="wrap_content" android:id="@+id/textView13"
                     android:textColor="@android:color/black" android:fontFamily="@font/roboto"
                     android:labelFor="@+id/etPaymentMethod"/>
-            <EditText
+            <Spinner
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:ems="10"
-                    android:id="@+id/etPaymentMethod" android:hint="@string/metode" android:layout_marginTop="2dp"/>
+                    android:layout_height="wrap_content" android:id="@+id/etPaymentMethod"
+                    android:layout_marginTop="6dp" style="@android:style/Widget.Holo.Light.Spinner"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -142,7 +141,7 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/etAddAmount" android:layout_marginTop="2dp"
-                    android:hint="@string/transaksi_keuangan"/>
+                    android:hint="@string/transaksi_keuangan" android:backgroundTint="@color/colorPrimaryDark"/>
         </LinearLayout>
         <RelativeLayout
                 android:layout_width="match_parent"
