@@ -13,4 +13,5 @@ data class Transaction(@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id")
                        @ColumnInfo(name = "type_category") val type_category : Int,
                        @ColumnInfo(name = "date") val date: String,
                        @ColumnInfo(name = "amount") val amount : Double,
-                       @ColumnInfo(name = "payment_method")val payment : String)
+                       @ColumnInfo(name = "payment_method")val payment : String,
+                       @Nullable @ColumnInfo(name = "img_link") val imgLink : String)
